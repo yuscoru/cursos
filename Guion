@@ -1,0 +1,42 @@
+Creando el modelo de datos.
+
+Se utilizará mysql como BBDD aunque la idea es utilizar H2 para test.
+
+Logarse en mysql
+mysql -u root -p
+
+No creamos una BBDD llamada democursos
+CREATE DATABASE democursos;
+
+Crear usuario
+CREATE USER 'yuscoru'@'localhost' IDENTIFIED BY 'yuscoru';
+
+Dar permisos a yuscoru para democursos
+
+GRANT ALL PRIVILEGES ON democursos.* TO 'jlcorujo'@'localhost';
+
+Crear Tabla Cursos
+
+CREATE TABLE `cursos` (
+  `ID_CURSO` int(11) NOT NULL AUTO_INCREMENT,
+  `NIVEL_CURSO` varchar(20) NOT NULL DEFAULT 'MEDIO',
+  `HORAS_CURSO` int(11) NOT NULL DEFAULT '10',
+  `TITULO_CURSO` varchar(200) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `ACTIVO_CURSO` int(11) NOT NULL DEFAULT '1',
+  `ID_PROFESOR` int(11) NOT NULL,
+  PRIMARY KEY (`ID_CURSO`),
+  KEY `ID_PROFESOR_idx` (`ID_PROFESOR`),
+  CONSTRAINT `ID_PROFESOR` FOREIGN KEY (`ID_PROFESOR`) REFERENCES `profesores` (`ID_PROFESOR`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabla con el catalogo de cursos disponibles';
+
+
+
+Tabla Profesores
+
+CREATE TABLE `profesores` (
+  `ID_PROFESOR` int(11) NOT NULL AUTO_INCREMENT,
+  `NOMBRE_PROFESOR` varchar(150) NOT NULL,
+  PRIMARY KEY (`ID_PROFESOR`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Profesores que imparten los cursos del catalogo';
+
+
