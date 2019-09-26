@@ -26,7 +26,8 @@ public class CursosServiceMybatisImpl implements CursosService{
 
 	@Override
 	public CursoEntity altaCurso(CursoEntity nuevoCurso) {
-		return null;
+		cursoMapper.save(nuevoCurso);
+		return nuevoCurso;
 	}
 
 }

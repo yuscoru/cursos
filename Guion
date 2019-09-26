@@ -75,3 +75,20 @@ Añadir por primera vez el proyecto a gibhub
 git remote add origin https://github.com/aqui-tu-repo.git
 Y luego ya pudes hacer push ---- git push -u origin master
 
+Borrar una rama
+git branch -d feature_x
+
+Actualizar desde repositorio remoto
+git pull
+
+En caso de error y querer volver atras
+git checkout -- <filename>
+
+A la desesperada traer todo lo del remoto
+git fetch origin
+git reset --hard origin/master
+
+Levantar Spring boot
+./mvnw spring-boot:run
+java -jar target/gs-testing-web-0.1.0.jar
+
