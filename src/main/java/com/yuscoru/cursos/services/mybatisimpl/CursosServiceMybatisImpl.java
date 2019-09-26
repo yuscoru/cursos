@@ -9,12 +9,12 @@ import com.yuscoru.cursos.model.mybatismappers.CursoMapper;
 import com.yuscoru.cursos.services.CursosService;
 
 @Service
-public class CursosServiceImpl implements CursosService{
+public class CursosServiceMybatisImpl implements CursosService{
 
 	private CursoMapper cursoMapper;
 	
 	
-	public CursosServiceImpl(CursoMapper cursoMapper) {
+	public CursosServiceMybatisImpl(CursoMapper cursoMapper) {
 		super();
 		this.cursoMapper = cursoMapper;
 	}

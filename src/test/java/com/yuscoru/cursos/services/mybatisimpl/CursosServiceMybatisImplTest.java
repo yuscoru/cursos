@@ -16,14 +16,14 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import com.yuscoru.cursos.model.entities.CursoEntity;
 import com.yuscoru.cursos.model.mybatismappers.CursoMapper;
-import com.yuscoru.cursos.services.mybatisimpl.CursosServiceImpl;
+import com.yuscoru.cursos.services.mybatisimpl.CursosServiceMybatisImpl;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CursosServiceImplTest {
+public class CursosServiceMybatisImplTest {
 	@Mock
 	private CursoMapper cursoMapper;
 	@InjectMocks
-	private CursosServiceImpl cursosServiceImpl;
+	private CursosServiceMybatisImpl cursosServiceImpl;
 
 	@Test
 	public void givenCursosBBDDConDatosWhenConsultaCursosThenListadoCursosConDatos() throws Exception {
