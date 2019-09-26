@@ -23,16 +23,22 @@ public interface CursoMapper {
                 @Result(property = "horas", column = "HORAS_CURSO"),
                 @Result(property = "titulo", column = "TITULO_CURSO"),
                 @Result(property = "activo", column = "ACTIVO_CURSO"),
-                @Result(property = "profesor",  javaType = CursoEntity.class, 
-                	    column = "ID_PROFESOR",
-                	    one=@One(select = "getProfesor")),
+                @Result(property = "profesor",  javaType = ProfesorEntity.class, 
+        	    column = "ID_PROFESOR",
+        	    one=@One(select = "com.yuscoru.cursos.model.mapper.ProfesorMapper.getProfesor"))
             })
-    public ProfesorEntity getCurso(@Param("id") int id);
+    public CursoEntity getCurso(@Param("id") int id);
 
-    @Select("SELECT ID_PROFESOR, NOMBRE_PROFESOR FROM PROFESORES")
+    @Select("SELECT ID_CURSO, NIVEL_CURSO, HORAS_CURSO, TITULO_CURSO, ACTIVO_CURSO, ID_PROFESOR FROM CURSOS")
     @Results(value = {
-            @Result(property = "id", column = "ID_PROFESOR"),
-            @Result(property = "nombre", column = "NOMBRE_PROFESOR"),
+                @Result(property = "id", column = "ID_CURSO"),
+                @Result(property = "nivel", column = "NIVEL_CURSO"),
+                @Result(property = "horas", column = "HORAS_CURSO"),
+                @Result(property = "titulo", column = "TITULO_CURSO"),
+                @Result(property = "activo", column = "ACTIVO_CURSO"),
+                @Result(property = "profesor",  javaType = ProfesorEntity.class, 
+                	    column = "ID_PROFESOR",
+                	    one=@One(select = "com.yuscoru.cursos.model.mapper.ProfesorMapper.getProfesor"))
             })
-    public List<ProfesorEntity> getCursos();
+    public List<CursoEntity> getCursos();
 }
