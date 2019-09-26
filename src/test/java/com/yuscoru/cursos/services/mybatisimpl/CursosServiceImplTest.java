@@ -1,4 +1,4 @@
-package com.yuscoru.cursos.services.impl;
+package com.yuscoru.cursos.services.mybatisimpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,8 @@ import static org.mockito.Mockito.when;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.yuscoru.cursos.model.entities.CursoEntity;
-import com.yuscoru.cursos.model.mappers.CursoMapper;
+import com.yuscoru.cursos.model.mybatismappers.CursoMapper;
+import com.yuscoru.cursos.services.mybatisimpl.CursosServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CursosServiceImplTest {

@@ -1,4 +1,4 @@
-package com.yuscoru.cursos.model.mappers;
+package com.yuscoru.cursos.model.mybatismappers;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public interface CursoMapper {
                 @Result(property = "idProfesor", column = "ID_PROFESOR"),
                 @Result(property = "profesor",  javaType = ProfesorEntity.class, 
                 	    column = "ID_PROFESOR",
-                	    one=@One(select = "com.yuscoru.cursos.model.mappers.ProfesorMapper.getProfesor"))
+                	    one=@One(select = "com.yuscoru.cursos.model.mybatismappers.ProfesorMapper.getProfesor"))
 
             })
     public CursoEntity getCurso(@Param("id") int id);
@@ -41,7 +41,7 @@ public interface CursoMapper {
                 @Result(property = "idProfesor", column = "ID_PROFESOR"),
                 @Result(property = "profesor",  javaType = ProfesorEntity.class, 
                 	    column = "ID_PROFESOR",
-                	    one=@One(select = "com.yuscoru.cursos.model.mappers.ProfesorMapper.getProfesor"))
+                	    one=@One(select = "com.yuscoru.cursos.model.mybatismappers.ProfesorMapper.getProfesor"))
             })
     public List<CursoEntity> getCursos();
 }

@@ -1,4 +1,4 @@
-package com.yuscoru.cursos.services.impl;
+package com.yuscoru.cursos.services.mybatisimpl;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
@@ -15,7 +15,8 @@ import static org.mockito.Mockito.when;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.yuscoru.cursos.model.entities.ProfesorEntity;
-import com.yuscoru.cursos.model.mappers.ProfesorMapper;
+import com.yuscoru.cursos.model.mybatismappers.ProfesorMapper;
+import com.yuscoru.cursos.services.mybatisimpl.ProfesoresServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ProfesoresServiceImplTest {

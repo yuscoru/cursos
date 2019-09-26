@@ -1,4 +1,4 @@
-package com.yuscoru.cursos.model.mappers;
+package com.yuscoru.cursos.model.mybatismappers;
 
 import static org.junit.Assert.*;
 
@@ -12,7 +12,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.yuscoru.cursos.model.entities.CursoEntity;
 import com.yuscoru.cursos.model.entities.ProfesorEntity;
-import com.yuscoru.cursos.model.mappers.CursoMapper;
+import com.yuscoru.cursos.model.mybatismappers.CursoMapper;
+import com.yuscoru.cursos.model.mybatismappers.ProfesorMapper;
 
 @RunWith(SpringRunner.class)
 @MybatisTest

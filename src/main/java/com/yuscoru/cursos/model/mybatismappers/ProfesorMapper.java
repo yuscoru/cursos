@@ -1,4 +1,4 @@
-package com.yuscoru.cursos.model.mappers;
+package com.yuscoru.cursos.model.mybatismappers;
 
 import java.util.List;
 
