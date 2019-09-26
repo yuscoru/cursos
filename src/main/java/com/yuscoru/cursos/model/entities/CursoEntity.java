@@ -10,7 +10,7 @@ public class CursoEntity implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String nivel;
-	private String horas;
+	private int horas;
 	private String titulo;
 	private int activo;
 	private int idProfesor;
@@ -28,10 +28,10 @@ public class CursoEntity implements Serializable{
 	public void setNivel(String nivel) {
 		this.nivel = nivel;
 	}
-	public String getHoras() {
+	public int getHoras() {
 		return horas;
 	}
-	public void setHoras(String horas) {
+	public void setHoras(int horas) {
 		this.horas = horas;
 	}
 	public String getTitulo() {

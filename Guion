@@ -38,3 +38,40 @@ CREATE TABLE `profesores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Profesores que imparten los cursos del catalogo';
 
 
+
+Crear rama y situarnos en ella
+
+-git checkout -b ramanueva
+
+trabajar en la nueva hasta hacer commit
+
+cuando acabemos en la nueva volvemos a master
+
+-git checkout master
+
+Y hacemos el merge sobre master de la nueva
+
+-git merge ramanueva
+
+Añadir cambios a la rama
+-git -a . (todos os que este bajo el directorio de trabajo en el que estemos)
+
+Hacer commit
+-git commit -m "Refactorizo paquetes"
+
+Subir a gibhub
+git push -u origin master
+
+Consultar ramas
+git checkout
+
+ver grafico de ramas
+git log --oneline --graph
+
+listar configuracion
+$ git config --list
+
+Añadir por primera vez el proyecto a gibhub
+git remote add origin https://github.com/aqui-tu-repo.git
+Y luego ya pudes hacer push ---- git push -u origin master
+

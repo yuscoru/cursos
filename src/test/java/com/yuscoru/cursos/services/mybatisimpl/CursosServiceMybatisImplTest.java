@@ -67,10 +67,4 @@ public class CursosServiceMybatisImplTest {
 	private  List<CursoEntity> givenCursosBDDNull() {
 		return null;
 	}
-	
-	@Test
-	public void testAltaCurso() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
 }
