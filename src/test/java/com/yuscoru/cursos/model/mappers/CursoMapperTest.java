@@ -1,4 +1,4 @@
-package com.yuscoru.cursos.model.mapper;
+package com.yuscoru.cursos.model.mappers;
 
 import static org.junit.Assert.*;
 
@@ -10,7 +10,9 @@ import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.yuscoru.cursos.model.entity.CursoEntity;
+import com.yuscoru.cursos.model.entities.CursoEntity;
+import com.yuscoru.cursos.model.entities.ProfesorEntity;
+import com.yuscoru.cursos.model.mappers.CursoMapper;
 
 @RunWith(SpringRunner.class)
 @MybatisTest
@@ -18,6 +20,9 @@ public class CursoMapperTest{
 	
 	@Autowired
 	private CursoMapper cursoMapper;
+	@Autowired
+	private ProfesorMapper profesorMapper;
+
 	@Test
 	public void testGetCurso() throws Exception {
 		CursoEntity curso = cursoMapper.getCurso(1);

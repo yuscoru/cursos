@@ -1,4 +1,4 @@
-package com.yuscoru.cursos.model.entity;
+package com.yuscoru.cursos.model.entities;
 
 import java.io.Serializable;
 

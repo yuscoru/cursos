@@ -1,12 +1,12 @@
-package com.yuscoru.cursos.model.mapper;
+package com.yuscoru.cursos.model.mappers;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
-import com.yuscoru.cursos.model.entity.CursoEntity;
-import com.yuscoru.cursos.model.entity.ProfesorEntity;
+import com.yuscoru.cursos.model.entities.CursoEntity;
+import com.yuscoru.cursos.model.entities.ProfesorEntity;
 
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
@@ -23,9 +23,11 @@ public interface CursoMapper {
                 @Result(property = "horas", column = "HORAS_CURSO"),
                 @Result(property = "titulo", column = "TITULO_CURSO"),
                 @Result(property = "activo", column = "ACTIVO_CURSO"),
+                @Result(property = "idProfesor", column = "ID_PROFESOR"),
                 @Result(property = "profesor",  javaType = ProfesorEntity.class, 
-        	    column = "ID_PROFESOR",
-        	    one=@One(select = "com.yuscoru.cursos.model.mapper.ProfesorMapper.getProfesor"))
+                	    column = "ID_PROFESOR",
+                	    one=@One(select = "com.yuscoru.cursos.model.mappers.ProfesorMapper.getProfesor"))
+
             })
     public CursoEntity getCurso(@Param("id") int id);
 
@@ -36,9 +38,10 @@ public interface CursoMapper {
                 @Result(property = "horas", column = "HORAS_CURSO"),
                 @Result(property = "titulo", column = "TITULO_CURSO"),
                 @Result(property = "activo", column = "ACTIVO_CURSO"),
+                @Result(property = "idProfesor", column = "ID_PROFESOR"),
                 @Result(property = "profesor",  javaType = ProfesorEntity.class, 
                 	    column = "ID_PROFESOR",
-                	    one=@One(select = "com.yuscoru.cursos.model.mapper.ProfesorMapper.getProfesor"))
+                	    one=@One(select = "com.yuscoru.cursos.model.mappers.ProfesorMapper.getProfesor"))
             })
     public List<CursoEntity> getCursos();
 }

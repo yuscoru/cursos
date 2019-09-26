@@ -1,4 +1,4 @@
-package com.yuscoru.cursos.model.mapper;
+package com.yuscoru.cursos.model.mappers;
 
 import static org.junit.Assert.*;
 
@@ -10,7 +10,8 @@ import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.yuscoru.cursos.model.entity.ProfesorEntity;
+import com.yuscoru.cursos.model.entities.ProfesorEntity;
+import com.yuscoru.cursos.model.mappers.ProfesorMapper;
 
 @RunWith(SpringRunner.class)
 @MybatisTest

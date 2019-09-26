@@ -1,4 +1,4 @@
-package com.yuscoru.cursos.model.dao.impl;
+package com.yuscoru.cursos.model.daos.impl;
 
 import org.junit.Test;
 

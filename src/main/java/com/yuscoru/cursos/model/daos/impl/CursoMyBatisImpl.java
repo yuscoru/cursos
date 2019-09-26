@@ -1,7 +1,7 @@
-package com.yuscoru.cursos.model.dao.impl;
+package com.yuscoru.cursos.model.daos.impl;
 
-import com.yuscoru.cursos.model.dao.CursoDAO;
-import com.yuscoru.cursos.model.entity.CursoEntity;
+import com.yuscoru.cursos.model.daos.CursoDAO;
+import com.yuscoru.cursos.model.entities.CursoEntity;
 
 public class CursoMyBatisImpl implements CursoDAO{
 

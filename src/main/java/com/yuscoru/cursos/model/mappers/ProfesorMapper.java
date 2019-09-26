@@ -1,11 +1,11 @@
-package com.yuscoru.cursos.model.mapper;
+package com.yuscoru.cursos.model.mappers;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
-import com.yuscoru.cursos.model.entity.ProfesorEntity;
+import com.yuscoru.cursos.model.entities.ProfesorEntity;
 
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;

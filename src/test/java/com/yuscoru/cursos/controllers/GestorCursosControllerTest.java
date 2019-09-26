@@ -1,4 +1,4 @@
-package com.yuscoru.cursos.controller;
+package com.yuscoru.cursos.controllers;
 
 public class GestorCursosControllerTest {
 

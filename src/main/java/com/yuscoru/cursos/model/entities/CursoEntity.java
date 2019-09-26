@@ -1,4 +1,4 @@
-package com.yuscoru.cursos.model.entity;
+package com.yuscoru.cursos.model.entities;
 
 import java.io.Serializable;
 
@@ -13,6 +13,7 @@ public class CursoEntity implements Serializable{
 	private String horas;
 	private String titulo;
 	private int activo;
+	private int idProfesor;
 	private ProfesorEntity profesor;
 	
 	public int getId() {
@@ -44,6 +45,13 @@ public class CursoEntity implements Serializable{
 	}
 	public void setActivo(int activo) {
 		this.activo = activo;
+	}
+	
+	public int getIdProfesor() {
+		return idProfesor;
+	}
+	public void setIdProfesor(int idProfesor) {
+		this.idProfesor = idProfesor;
 	}
 	public ProfesorEntity getProfesor() {
 		return profesor;
