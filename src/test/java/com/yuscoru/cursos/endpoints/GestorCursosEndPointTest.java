@@ -28,7 +28,7 @@ public class GestorCursosEndPointTest {
 
 	    @Test
 	    public void givenPeticionGETCursosWhenWorkEndpointThenResponse200() throws Exception {
-	    	ResponseEntity<String> response =  this.restTemplate.getForEntity(new StringBuffer("http://localhost:").append(port).append("/cursos").toString(),String.class);
+	    	ResponseEntity<String> response =  this.restTemplate.getForEntity(new StringBuffer("http://localhost:").append(port).append("/rest/api/v1/cursos").toString(),String.class);
 	    	assertEquals(200, response.getStatusCodeValue());
 	    }
 
@@ -36,7 +36,7 @@ public class GestorCursosEndPointTest {
 	    public void givenPeticionPOSTCursoWhenWorkEndpointThenResponse200() throws Exception {
 	    	Object cursoEntity = new CursoEntity();
 			HttpEntity<CursoEntity> request = new HttpEntity(cursoEntity);
-	    	ResponseEntity<String> response =  this.restTemplate.postForEntity(new StringBuffer("http://localhost:").append(port).append("/cursos/curso").toString(),request,String.class);
+	    	ResponseEntity<String> response =  this.restTemplate.postForEntity(new StringBuffer("http://localhost:").append(port).append("/rest/api/v1/cursos/curso").toString(),request,String.class);
 	    	assertEquals(200, response.getStatusCodeValue());
 	    }
 }

@@ -42,7 +42,18 @@ public class CursosServiceMybatisImplTest {
 	@Test
 	public void givenCursosBBDDNullWhenConsultaCursosThenListadoNull() throws Exception {
 		
-		assertNull(whenConsultaCursos(givenCursosBDDNull()));
+		assertTrue(whenConsultaCursos(givenCursosBDDNull()).isEmpty());
+		
+	}
+
+	@Test
+	public void givenListaCursosWhenConsultaCursosThenDevuelveSoloActivos() throws Exception {
+		
+		assertNull(whenConsultaCursos(givenCursosBDDConDatos())
+				.stream()
+				.filter(curso -> curso.getActivo() == 0)
+				.findAny()
+				.orElse(null));
 		
 	}
 
@@ -54,8 +65,12 @@ public class CursosServiceMybatisImplTest {
 
 	private  List<CursoEntity> givenCursosBDDConDatos() {
 		List<CursoEntity> listCursosBBDD = new ArrayList<CursoEntity>();
-		CursoEntity curso = new CursoEntity();
-		listCursosBBDD.add(curso);
+		CursoEntity curso1 = new CursoEntity();
+		curso1.setActivo(1);
+		CursoEntity curso2 = new CursoEntity();
+		curso2.setActivo(0);
+		listCursosBBDD.add(curso1);
+		listCursosBBDD.add(curso2);
 		return listCursosBBDD;
 	}
 

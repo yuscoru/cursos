@@ -10,12 +10,11 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
-import com.google.gson.Gson;
 import com.yuscoru.cursos.model.entities.CursoEntity;
 import com.yuscoru.cursos.services.CursosService;
 
 @Component
-@Path("/cursos")
+@Path("/rest/api/v1/cursos")
 public class GestorCursosEndPoint {
 
 	private CursosService cursosServicio;
@@ -35,9 +34,7 @@ public class GestorCursosEndPoint {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response consultaCursos(CursoEntity curso) {
-//		Gson gson = new Gson();
-//		String jsonString = gson.toJson(books);
+	public Response consultaCursos() {
 		return Response.ok().entity(cursosServicio.consultaCatalogoCursos()).build();
     }
 }

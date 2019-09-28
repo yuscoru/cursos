@@ -1,6 +1,9 @@
 package com.yuscoru.cursos.services.mybatisimpl;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -21,7 +24,11 @@ public class CursosServiceMybatisImpl implements CursosService{
 
 	@Override
 	public List<CursoEntity> consultaCatalogoCursos() {
-		return cursoMapper.getCursos();
+		return Optional.ofNullable(cursoMapper.getCursos())
+                .orElseGet(Collections::emptyList)
+				.stream()
+				.filter(curso -> curso!= null && curso.getActivo() == 1)
+				.collect(Collectors.toList());
 	}
 
 	@Override
