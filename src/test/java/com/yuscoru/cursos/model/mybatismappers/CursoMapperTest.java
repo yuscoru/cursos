@@ -36,7 +36,7 @@ public class CursoMapperTest{
 	@Test
 	public void testAltaCurso() throws Exception {
 		CursoEntity nuevoCurso = new CursoEntity();
-		nuevoCurso.setActivo(1);
+		nuevoCurso.setActivo(true);
 		nuevoCurso.setHoras(120);
 		nuevoCurso.setIdProfesor(5);
 		nuevoCurso.setNivel("Medio");
@@ -47,7 +47,7 @@ public class CursoMapperTest{
     @Test(expected = Exception.class)
     public void testDivisionWithException() {
 		CursoEntity nuevoCurso = new CursoEntity();
-		nuevoCurso.setActivo(1);
+		nuevoCurso.setActivo(true);
 		nuevoCurso.setHoras(120);
 		nuevoCurso.setIdProfesor(8);
 		nuevoCurso.setNivel("Medio");

@@ -12,7 +12,7 @@ public class CursoEntity implements Serializable{
 	private String nivel;
 	private int horas;
 	private String titulo;
-	private int activo;
+	private boolean activo;
 	private int idProfesor;
 	private ProfesorEntity profesor;
 	
@@ -40,13 +40,13 @@ public class CursoEntity implements Serializable{
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public int getActivo() {
+	
+	public boolean isActivo() {
 		return activo;
 	}
-	public void setActivo(int activo) {
+	public void setActivo(boolean activo) {
 		this.activo = activo;
 	}
-	
 	public int getIdProfesor() {
 		return idProfesor;
 	}

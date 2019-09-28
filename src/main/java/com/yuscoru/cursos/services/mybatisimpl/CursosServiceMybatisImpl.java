@@ -27,7 +27,7 @@ public class CursosServiceMybatisImpl implements CursosService{
 		return Optional.ofNullable(cursoMapper.getCursos())
                 .orElseGet(Collections::emptyList)
 				.stream()
-				.filter(curso -> curso!= null && curso.getActivo() == 1)
+				.filter(curso -> curso!= null && curso.isActivo())
 				.collect(Collectors.toList());
 	}
 

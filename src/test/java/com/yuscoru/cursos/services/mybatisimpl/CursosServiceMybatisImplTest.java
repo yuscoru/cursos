@@ -51,7 +51,7 @@ public class CursosServiceMybatisImplTest {
 		
 		assertNull(whenConsultaCursos(givenCursosBDDConDatos())
 				.stream()
-				.filter(curso -> curso.getActivo() == 0)
+				.filter(curso -> !curso.isActivo())
 				.findAny()
 				.orElse(null));
 		
@@ -66,9 +66,9 @@ public class CursosServiceMybatisImplTest {
 	private  List<CursoEntity> givenCursosBDDConDatos() {
 		List<CursoEntity> listCursosBBDD = new ArrayList<CursoEntity>();
 		CursoEntity curso1 = new CursoEntity();
-		curso1.setActivo(1);
+		curso1.setActivo(true);
 		CursoEntity curso2 = new CursoEntity();
-		curso2.setActivo(0);
+		curso2.setActivo(false);
 		listCursosBBDD.add(curso1);
 		listCursosBBDD.add(curso2);
 		return listCursosBBDD;
