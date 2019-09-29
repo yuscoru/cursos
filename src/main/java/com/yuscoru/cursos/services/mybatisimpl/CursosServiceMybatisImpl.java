@@ -1,6 +1,7 @@
 package com.yuscoru.cursos.services.mybatisimpl;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,12 +24,17 @@ public class CursosServiceMybatisImpl implements CursosService{
 	}
 
 	@Override
-	public List<CursoEntity> consultaCatalogoCursos() {
+	public List<CursoEntity> consultaCatalogoCursos(boolean asc) {
 		return Optional.ofNullable(cursoMapper.getCursos())
                 .orElseGet(Collections::emptyList)
 				.stream()
 				.filter(curso -> curso!= null && curso.isActivo())
+				.sorted(elegirOrden(asc))
 				.collect(Collectors.toList());
+	}
+
+	private Comparator<CursoEntity> elegirOrden(boolean asc) {
+		return asc?Comparator.comparing(CursoEntity::getTitulo):Comparator.comparing(CursoEntity::getTitulo).reversed();
 	}
 
 	@Override
