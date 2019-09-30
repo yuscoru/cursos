@@ -33,9 +33,24 @@ public class GestorCursosEndPointTest {
 
 	    @Test
 	    public void givenPeticionPOSTCursoWhenWorkEndpointThenResponse200() throws Exception {
-	    	Object cursoEntity = new CursoEntity();
-			HttpEntity<CursoEntity> request = new HttpEntity(cursoEntity);
+	    	CursoEntity cursoEntity = new CursoEntity();
+	    	cursoEntity.setActivo(true);
+	    	cursoEntity.setHoras(99);
+	    	cursoEntity.setIdProfesor(1);
+	    	cursoEntity.setTitulo("PRUEBA DESDE TEST");
+	    	cursoEntity.setNivel("MEDIO");
+	    	HttpEntity<CursoEntity> request = new HttpEntity(cursoEntity);
 	    	ResponseEntity<String> response =  this.restTemplate.postForEntity(new StringBuffer("http://localhost:").append(port).append("/rest/api/v1/cursos/curso").toString(),request,String.class);
 	    	assertEquals(200, response.getStatusCodeValue());
+	    }
+
+	    @Test
+	    public void givenPeticionPOSTNoValidaWhenWorkEndpointThenResponse400() throws Exception {
+	    	CursoEntity cursoEntity = new CursoEntity();
+	    	cursoEntity.setTitulo("PRUEBA DESDE TEST");
+	    	cursoEntity.setNivel("MEDIO");
+	    	HttpEntity<CursoEntity> request = new HttpEntity(cursoEntity);
+	    	ResponseEntity<String> response =  this.restTemplate.postForEntity(new StringBuffer("http://localhost:").append(port).append("/rest/api/v1/cursos/curso").toString(),request,String.class);
+	    	assertEquals(404, response.getStatusCodeValue());
 	    }
 }

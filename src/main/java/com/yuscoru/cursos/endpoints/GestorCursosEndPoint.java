@@ -31,8 +31,23 @@ public class GestorCursosEndPoint {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response altaCurso(CursoEntity curso) {
-		return Response.ok().entity(cursosServicio.altaCurso(curso)).build();
+		if(requestValida(curso)) {
+			return Response.ok().entity(cursosServicio.altaCurso(curso)).build();
+		}else {
+			return Response.status(400).build();
+		}
     }
+
+	private boolean requestValida(CursoEntity curso) {
+		if(curso.getHoras()<=0
+			|| curso.getIdProfesor()<=0
+			|| "".equals(curso.getNivel())
+			|| "".equals(curso.getTitulo())){
+			
+			return false;
+		}
+		return true;
+	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
