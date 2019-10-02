@@ -92,3 +92,8 @@ Levantar Spring boot
 ./mvnw spring-boot:run
 java -jar target/gs-testing-web-0.1.0.jar
 
+Añadir proxy a git
+git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
+Quitar proxy
+git config --global --unset http.proxy
+
