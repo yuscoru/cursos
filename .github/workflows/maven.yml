@@ -33,10 +33,16 @@ jobs:
         key: ${{ runner.os }}-sonar
         restore-keys: ${{ runner.os }}-sonar
         
-    - name: Build y Tests con Coverage y SonarCloud
+    # ✅ Siempre se ejecuta, también en PRs de Dependabot
+    - name: Build y Tests con Coverage
+      run: mvn -B verify --file pom.xml
+
+    # ✅ Solo se ejecuta si NO es un PR de Dependabot
+    - name: 📊 Análisis SonarCloud
+      if: github.actor != 'dependabot[bot]'
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=yuscoru_cursos --file pom.xml
+      run: mvn -B sonar:sonar -Dsonar.projectKey=yuscoru_cursos
 
     - name: 📦 Publicar reporte JaCoCo como artefacto
       uses: actions/upload-artifact@v4
@@ -47,7 +53,7 @@ jobs:
 
     - name: 📊 Comentario Coverage en PR
       uses: madrapps/jacoco-report@v1.7.1
-      if: github.event_name == 'pull_request'
+      if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
       with:
         paths: target/site/jacoco/jacoco.xml
         token: ${{ secrets.GITHUB_TOKEN }}
