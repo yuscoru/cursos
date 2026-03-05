@@ -1,20 +1,19 @@
 package com.yuscoru.cursos.model.mybatismappers;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.yuscoru.cursos.model.entities.ProfesorEntity;
-import com.yuscoru.cursos.model.mybatismappers.ProfesorMapper;
 
-@RunWith(SpringRunner.class)
-@MybatisTest
+@SpringBootTest(webEnvironment = WebEnvironment.NONE)
+@Transactional
 public class ProfesorMapperTest{
 	
 	@Autowired
