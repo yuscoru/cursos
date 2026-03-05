@@ -1,20 +1,19 @@
 package com.yuscoru.cursos.model.mybatismappers;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.yuscoru.cursos.model.entities.CursoEntity;
-import com.yuscoru.cursos.model.mybatismappers.CursoMapper;
 
-@RunWith(SpringRunner.class)
-@MybatisTest
+@SpringBootTest(webEnvironment = WebEnvironment.NONE)
+@Transactional
 public class CursoMapperTest{
 	
 	@Autowired
@@ -44,7 +43,7 @@ public class CursoMapperTest{
 		assertEquals(1,whenAltaCurso(nuevoCurso));
 	}
 
-    @Test(expected = Exception.class)
+    @Test
     public void testDivisionWithException() {
 		CursoEntity nuevoCurso = new CursoEntity();
 		nuevoCurso.setActivo(true);
@@ -52,7 +51,7 @@ public class CursoMapperTest{
 		nuevoCurso.setIdProfesor(8);
 		nuevoCurso.setNivel("Medio");
 		nuevoCurso.setTitulo("ESTE TITULO NO PUEDE SUPERAR LOS 200 CARACTERES");
-		whenAltaCurso(nuevoCurso);
+		assertThrows(Exception.class, () -> whenAltaCurso(nuevoCurso));
     }
 
     private int whenAltaCurso(CursoEntity nuevoCurso) {

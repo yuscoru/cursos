@@ -48,6 +48,6 @@ public interface CursoMapper {
     public List<CursoEntity> getCursos();
     
     @Insert("INSERT INTO CURSOS(NIVEL_CURSO, HORAS_CURSO, TITULO_CURSO, ACTIVO_CURSO, ID_PROFESOR) VALUES(#{nivel}, #{horas}, #{titulo}, #{activo}, #{idProfesor})")
-    @Options(useGeneratedKeys=true, keyProperty="id", keyColumn="ID")
+    @Options(useGeneratedKeys=true, keyProperty="id", keyColumn="ID_CURSO")
     public int save(CursoEntity nuevoCurso);
 }
