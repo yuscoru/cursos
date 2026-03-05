@@ -33,4 +33,11 @@ jobs:
       run: mvn -B package --file pom.xml
       
     - name: Build y Tests con Coverage
-      run: mvn -B verify --file pom.xml      
+      run: mvn -B verify --file pom.xml 
+
+    - name: Publicar reporte JaCoCo
+      uses: actions/upload-artifact@v4
+      if: always()   # Lo sube aunque haya fallado el build
+      with:
+        name: jacoco-report
+        path: target/site/jacoco/      
