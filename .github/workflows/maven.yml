@@ -46,7 +46,7 @@ jobs:
         path: target/site/jacoco/
 
     - name: 📊 Comentario Coverage en PR
-      uses: madrapps/jacoco-report@v1.7.1
+      uses: madrapps/jacoco-report@v1.7.2
       if: github.event_name == 'pull_request'
       with:
         paths: target/site/jacoco/jacoco.xml
